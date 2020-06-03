@@ -20,8 +20,7 @@ class GitHubActionsTests: XCTestCase {
     }
 
     func testUnitExample1() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTFail("Fail because I want it to fail")
     }
     
     func testUnitExample2() throws {
