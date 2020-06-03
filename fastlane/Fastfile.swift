@@ -9,8 +9,29 @@
 import Foundation
 
 class Fastfile: LaneFile {
-	func testLane() {
-        desc("All the tests in the world")
-		scan()
+	func buildLane() {
+        desc("Build for testing")
+		scan(
+            derivedDataPath: "derivedData",
+            buildForTesting: true
+        )
 	}
+    
+    func unitTestLane() {
+        desc("run Unit-tests")
+        scan(
+            onlyTesting: "GitHubActionsTests",
+            derivedDataPath: "derivedData",
+            testWithoutBuilding: true
+        )
+    }
+    
+    func uiTestLane() {
+        desc("Run UI-tests")
+        scan(
+            onlyTesting: "GitHubActionsUITests",
+            derivedDataPath: "derivedData",
+            testWithoutBuilding: true
+        )
+    }
 }
